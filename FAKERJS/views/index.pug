@@ -1,5 +1,16 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+    head
+        title #{title}
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/style.css')
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+    body
+        header.header.bg-success.p-3
+            .container-fluid
+                h1.text-light #{title}
+        .container.mt-5
+                each poet in poets
+                    .card.col-4.m-2
+                        a(href=`users/${poet.card.username}`)
+                            h5.card-title #{poet.name}                     
