@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:poet_username', (req, res) => { 
+router.get('/poet/:poet_username', (req, res) => { 
   const poetUsername = req.params.poet_username;
   for (i = 0; i < allpoets.length; i++) {
     if (allpoets[i].card.username == poetUsername) {
@@ -50,7 +50,24 @@ router.get('/:poet_username', (req, res) => {
   } else {
     res.status(404).send('poet not found');
   }
+});
 
+router.get('/poet/:poet_username/all', (req, res) => { 
+  const poetUsername = req.params.poet_username;
+  for (i = 0; i < allpoets.length; i++) {
+    if (allpoets[i].card.username == poetUsername) {
+      var poet = allpoets[i];
+    } }
+  if (poet != null) {
+    res.send(poet);
+  } else {
+    res.status(404).send('poet not found');
+  }
+});
+
+/* GET users listing. */
+router.get('/allpoets', (req, res) => {
+  res.send(allpoets);
 });
 
 

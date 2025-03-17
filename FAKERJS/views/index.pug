@@ -12,5 +12,7 @@ html
         .container.mt-5
                 each poet in poets
                     .card.col-4.m-2
-                        a(href=`users/${poet.card.username}`)
-                            h5.card-title #{poet.name}                     
+                        a(href=`users/poet/${poet.card.username}`)
+                            h5.card-title #{poet.name}   
+
+                a(href="/users/allpoets") Go to all poets data
